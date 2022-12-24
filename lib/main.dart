@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'app/presenter/pages/variations_chart/variations_chart_page.dart';
 import 'app/presenter/pages/variations_table/variations_table_page.dart';
 import 'core/constants/constants.dart';
 import 'core/inject/inject.dart';
@@ -22,10 +23,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "Finances App",
       theme: ThemeConstants.dark,
-      initialRoute: RoutesConstants.table,
+      initialRoute: RoutesConstants.chart,
       routes: {
         RoutesConstants.table: (context) => const VariationsTablePage(),
-        RoutesConstants.chart: (context) => const VariationsTablePage(),
+        RoutesConstants.chart: (context) => const VariationsChartPage(),
       },
     );
   }
