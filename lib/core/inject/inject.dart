@@ -16,7 +16,7 @@ class Inject {
 
     // core
     getIt.registerLazySingleton<Dio>(() => Dio());
-    getIt.registerLazySingleton<CustomInterceptor>(() => CustomInterceptor());
+    getIt.registerLazySingleton<Interceptor>(() => CustomInterceptor());
     getIt.registerLazySingleton<HttpHelper>(
       () => HttpHelperImpl(getIt(), getIt()),
     );

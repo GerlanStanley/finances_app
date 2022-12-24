@@ -14,14 +14,22 @@ class VariationsTablePage extends StatefulWidget {
 class _VariationsTablePageState extends State<VariationsTablePage> {
   var financialAssetBloc = GetIt.I<FinancialAssetBloc>();
 
+  final FocusNode focusNode = FocusNode();
+  final TextEditingController textEditingController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
       body: Column(
         children: [
-          FinancialAssetAutoCompleteTextField(
-            financialAssetBloc: financialAssetBloc,
+          Container(
+            margin: const EdgeInsets.all(16),
+            child: FinancialAssetAutoCompleteTextField(
+              focusNode: focusNode,
+              textEditingController: textEditingController,
+              financialAssetBloc: financialAssetBloc,
+            ),
           ),
           Expanded(
             child: SingleChildScrollView(

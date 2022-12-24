@@ -8,9 +8,9 @@ class FinancialAssetMapper {
   static FinancialAssetEntity fromJson(Map json) {
     return FinancialAssetEntity(
       symbol: json["symbol"],
-      longName: json["longname"],
-      sector: json["sector"],
-      industry: json["industry"],
+      longName: json.containsKey("longname") ? json["longname"] : null,
+      sector: json.containsKey("sector") ? json["sector"] : null,
+      industry: json.containsKey("industry") ? json["industry"] : null,
     );
   }
 }

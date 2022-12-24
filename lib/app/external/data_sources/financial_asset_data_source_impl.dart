@@ -1,3 +1,5 @@
+import 'package:finances_app/core/utils/print_debug_utils.dart';
+
 import '../../../../core/failures/failures.dart';
 import '../../../../core/helpers/http/http.dart';
 
@@ -28,6 +30,8 @@ class FinancialAssetDataSourceImpl implements FinancialAssetDataSource {
     } on Failure {
       rethrow;
     } catch (e, stackTrace) {
+      printDebug(e);
+      printDebug(stackTrace);
       throw ParseFailure(
         message: "Erro ao mapear o json",
         stackTrace: stackTrace,
