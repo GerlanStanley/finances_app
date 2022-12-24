@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 
+import 'app/presenter/pages/variations_table/variations_table_page.dart';
 import 'core/constants/constants.dart';
+import 'core/inject/inject.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  Inject.initialize();
+
   runApp(const MyApp());
 }
 
@@ -15,9 +20,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Game Lovers App",
+      title: "Finances App",
       theme: ThemeConstants.dark,
-      home: Container(),
+      initialRoute: RoutesConstants.table,
+      routes: {
+        RoutesConstants.table: (context) => const VariationsTablePage(),
+        RoutesConstants.chart: (context) => const VariationsTablePage(),
+      },
     );
   }
 }

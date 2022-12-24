@@ -5,11 +5,11 @@ import '../../utils/utils.dart';
 
 import 'http.dart';
 
-class DioHttpHelperImpl implements HttpHelper {
+class HttpHelperImpl implements HttpHelper {
   final Dio _dio;
   final Interceptor _interceptor;
 
-  DioHttpHelperImpl(this._dio, this._interceptor) {
+  HttpHelperImpl(this._dio, this._interceptor) {
     _dio.interceptors.add(_interceptor);
   }
 
