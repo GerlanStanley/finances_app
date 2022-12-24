@@ -21,7 +21,7 @@ class VariationDataSourceImpl implements VariationDataSource {
     try {
       DateTime now = DateTime.now();
       var period1 =
-          now.subtract(const Duration(days: 30)).millisecondsSinceEpoch ~/ 1000;
+          now.subtract(const Duration(days: 50)).millisecondsSinceEpoch ~/ 1000;
       var period2 = now.millisecondsSinceEpoch ~/ 1000;
 
       Map response = await _httpHelper.get(

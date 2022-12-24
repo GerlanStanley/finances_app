@@ -43,6 +43,7 @@ dependencies:
   dartz:
   equatable:
   flutter_typeahead: ^4.1.1
+  intl:
 
 dev_dependencies:
   flutter_test:

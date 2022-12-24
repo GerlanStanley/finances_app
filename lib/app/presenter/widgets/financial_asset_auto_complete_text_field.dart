@@ -57,7 +57,7 @@ class FinancialAssetAutoCompleteTextField extends StatelessWidget {
                   color: ColorsConstants.primary,
                   width: 1,
                 ),
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(4),
               ),
               enabledBorder: OutlineInputBorder(
                 borderSide: BorderSide(
@@ -66,7 +66,7 @@ class FinancialAssetAutoCompleteTextField extends StatelessWidget {
                       : ColorsConstants.primary,
                   width: 1,
                 ),
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(4),
               ),
               focusedBorder: OutlineInputBorder(
                 borderSide: BorderSide(
@@ -75,21 +75,21 @@ class FinancialAssetAutoCompleteTextField extends StatelessWidget {
                       : ColorsConstants.primary,
                   width: 2,
                 ),
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(4),
               ),
               errorBorder: OutlineInputBorder(
                 borderSide: const BorderSide(
                   color: ColorsConstants.error,
                   width: 1,
                 ),
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(4),
               ),
               focusedErrorBorder: OutlineInputBorder(
                 borderSide: const BorderSide(
                   color: ColorsConstants.error,
                   width: 2,
                 ),
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(4),
               ),
               contentPadding: const EdgeInsets.only(
                 top: 17,
@@ -129,6 +129,7 @@ class FinancialAssetAutoCompleteTextField extends StatelessWidget {
           },
           onSuggestionSelected: (suggestion) {
             textEditingController.text = suggestion.symbol;
+            financialAssetBloc.selectedFinancialAsset = suggestion;
             variationBloc.add(GetAllVariationsEvent(symbol: suggestion.symbol));
           },
           noItemsFoundBuilder: (context) {

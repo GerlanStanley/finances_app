@@ -31,5 +31,7 @@ class ColorsConstants {
 
   // Others Widgets
   static const Color card = Color(0xFF424242);
+  static const Color divider = Color(0xCCFFFFFF);
   static const Color error = Color(0xFFEF5350);
+  static const Color success = Color(0xFF66BB6A);
 }

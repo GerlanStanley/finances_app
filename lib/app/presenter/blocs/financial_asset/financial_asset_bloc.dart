@@ -1,3 +1,4 @@
+import 'package:finances_app/app/domain/entities/entities.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../domain/dtos/dtos.dart';
@@ -7,6 +8,8 @@ import 'financial_asset.dart';
 
 class FinancialAssetBloc extends Bloc<FinancialAssetEvent, FinancialAssetState> {
   final SearchFinancialAssetsUseCase _searchFinancialAssets;
+
+  FinancialAssetEntity? selectedFinancialAsset;
 
   FinancialAssetBloc(this._searchFinancialAssets)
       : super(InitialFinancialAssetState()) {
