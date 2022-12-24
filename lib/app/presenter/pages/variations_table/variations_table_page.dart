@@ -24,7 +24,7 @@ class _VariationsTablePageState extends State<VariationsTablePage> {
       body: Column(
         children: [
           Container(
-            margin: const EdgeInsets.all(16),
+            margin: const EdgeInsets.fromLTRB(16, 24, 16, 16),
             child: FinancialAssetAutoCompleteTextField(
               focusNode: focusNode,
               textEditingController: textEditingController,

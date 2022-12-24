@@ -8,6 +8,7 @@ import '../../app/infra/data_sources/data_sources.dart';
 import '../../app/infra/repositories/repositories.dart';
 import '../../app/presenter/blocs/financial_asset/financial_asset.dart';
 
+import '../../app/presenter/blocs/variation/variation.dart';
 import '../helpers/http/http.dart';
 
 class Inject {
@@ -48,6 +49,9 @@ class Inject {
     // blocs
     getIt.registerLazySingleton<FinancialAssetBloc>(
       () => FinancialAssetBloc(getIt()),
+    );
+    getIt.registerLazySingleton<VariationBloc>(
+      () => VariationBloc(getIt()),
     );
   }
 }
