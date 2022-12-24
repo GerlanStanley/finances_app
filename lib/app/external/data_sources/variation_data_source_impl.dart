@@ -1,6 +1,8 @@
 import '../../../../core/failures/failures.dart';
 import '../../../../core/helpers/http/http.dart';
 
+import '../../../core/utils/utils.dart';
+
 import '../../domain/dtos/dtos.dart';
 import '../../domain/entities/entities.dart';
 import '../../infra/data_sources/data_sources.dart';
@@ -18,22 +20,24 @@ class VariationDataSourceImpl implements VariationDataSource {
   }) async {
     try {
       DateTime now = DateTime.now();
-      var period1 = now.millisecondsSinceEpoch ~/ 1000;
-      var period2 =
+      var period1 =
           now.subtract(const Duration(days: 30)).millisecondsSinceEpoch ~/ 1000;
+      var period2 = now.millisecondsSinceEpoch ~/ 1000;
 
       Map response = await _httpHelper.get(
-        "/v8/finance/charts/${input.symbol}",
+        "/v8/finance/chart/${input.symbol}",
         queryParameters: {
           "interval": "1d",
           "period1": period1,
           "period2": period2,
         },
       );
-      return VariationMapper.fromList(response["chart"]["result"]);
+      return VariationMapper.fromList(response["chart"]["result"][0]);
     } on Failure {
       rethrow;
     } catch (e, stackTrace) {
+      printDebug(e);
+      printDebug(stackTrace);
       throw ParseFailure(
         message: "Erro ao mapear o json",
         stackTrace: stackTrace,

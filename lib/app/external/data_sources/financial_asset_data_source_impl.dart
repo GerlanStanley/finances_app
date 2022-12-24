@@ -1,7 +1,7 @@
-import 'package:finances_app/core/utils/print_debug_utils.dart';
-
 import '../../../../core/failures/failures.dart';
 import '../../../../core/helpers/http/http.dart';
+
+import '../../../core/utils/utils.dart';
 
 import '../../domain/dtos/dtos.dart';
 import '../../domain/entities/entities.dart';
@@ -21,10 +21,7 @@ class FinancialAssetDataSourceImpl implements FinancialAssetDataSource {
     try {
       Map response = await _httpHelper.get(
         "/v1/finance/search",
-        queryParameters: {
-          "q": input.text,
-          "lang": "pt-BR"
-        },
+        queryParameters: {"q": input.text, "lang": "pt-BR"},
       );
       return FinancialAssetMapper.fromList(response["quotes"]);
     } on Failure {
