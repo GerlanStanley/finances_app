@@ -44,6 +44,7 @@ dependencies:
   equatable:
   flutter_typeahead: ^4.1.1
   intl:
+  fl_chart: ^0.55.2
 
 dev_dependencies:
   flutter_test:

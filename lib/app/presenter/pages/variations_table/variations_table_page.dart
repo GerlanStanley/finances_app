@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 
-import '../../../domain/entities/entities.dart';
 import '../../blocs/financial_asset/financial_asset.dart';
 import '../../blocs/variation/variation.dart';
 import '../../widgets/widgets.dart';

@@ -5,6 +5,7 @@ class ColorsConstants {
   static const Color primary = Color(0xff90CAF9);
   static const Color primaryDark = Color(0xff64B5F6);
   static const Color background = Color(0xFF303030);
+  static const Color backgroundDark = Color(0xFF2A2A2A);
 
   // App Bar
   static const Color appBarBackground = Color(0xFF303030);
