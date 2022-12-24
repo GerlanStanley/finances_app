@@ -7,17 +7,20 @@ import '../../../core/constants/constants.dart';
 import '../../domain/entities/entities.dart';
 
 import '../blocs/financial_asset/financial_asset.dart';
+import '../blocs/variation/variation.dart';
 
 class FinancialAssetAutoCompleteTextField extends StatelessWidget {
   final FocusNode focusNode;
   final TextEditingController textEditingController;
   final FinancialAssetBloc financialAssetBloc;
+  final VariationBloc variationBloc;
 
   const FinancialAssetAutoCompleteTextField({
     Key? key,
     required this.focusNode,
     required this.textEditingController,
     required this.financialAssetBloc,
+    required this.variationBloc,
   }) : super(key: key);
 
   @override
@@ -30,8 +33,7 @@ class FinancialAssetAutoCompleteTextField extends StatelessWidget {
             focusNode: focusNode,
             autofocus: false,
             controller: textEditingController,
-            style: DefaultTextStyle
-                .of(context)
+            style: DefaultTextStyle.of(context)
                 .style
                 .copyWith(fontStyle: FontStyle.italic),
             decoration: InputDecoration(
@@ -43,9 +45,8 @@ class FinancialAssetAutoCompleteTextField extends StatelessWidget {
                     : ColorsConstants.primary,
                 fontWeight: FontWeight.w600,
               ),
-              errorText: state is FailureFinancialAssetState
-                  ? state.error
-                  : null,
+              errorText:
+                  state is FailureFinancialAssetState ? state.error : null,
               errorMaxLines: 2,
               errorStyle: const TextStyle(
                 color: ColorsConstants.error,
@@ -56,7 +57,7 @@ class FinancialAssetAutoCompleteTextField extends StatelessWidget {
                   color: ColorsConstants.primary,
                   width: 1,
                 ),
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(4),
               ),
               enabledBorder: OutlineInputBorder(
                 borderSide: BorderSide(
@@ -65,7 +66,7 @@ class FinancialAssetAutoCompleteTextField extends StatelessWidget {
                       : ColorsConstants.primary,
                   width: 1,
                 ),
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(4),
               ),
               focusedBorder: OutlineInputBorder(
                 borderSide: BorderSide(
@@ -74,21 +75,21 @@ class FinancialAssetAutoCompleteTextField extends StatelessWidget {
                       : ColorsConstants.primary,
                   width: 2,
                 ),
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(4),
               ),
               errorBorder: OutlineInputBorder(
                 borderSide: const BorderSide(
                   color: ColorsConstants.error,
                   width: 1,
                 ),
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(4),
               ),
               focusedErrorBorder: OutlineInputBorder(
                 borderSide: const BorderSide(
                   color: ColorsConstants.error,
                   width: 2,
                 ),
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(4),
               ),
               contentPadding: const EdgeInsets.only(
                 top: 17,
@@ -128,6 +129,8 @@ class FinancialAssetAutoCompleteTextField extends StatelessWidget {
           },
           onSuggestionSelected: (suggestion) {
             textEditingController.text = suggestion.symbol;
+            financialAssetBloc.selectedFinancialAsset = suggestion;
+            variationBloc.add(GetAllVariationsEvent(symbol: suggestion.symbol));
           },
           noItemsFoundBuilder: (context) {
             return Container(
