@@ -5,10 +5,10 @@ import '../../../domain/use_cases/use_cases.dart';
 
 import 'financial_asset.dart';
 
-class PlatformsBloc extends Bloc<FinancialAssetEvent, FinancialAssetState> {
+class FinancialAssetBloc extends Bloc<FinancialAssetEvent, FinancialAssetState> {
   final SearchFinancialAssetsUseCase _searchFinancialAssets;
 
-  PlatformsBloc(this._searchFinancialAssets)
+  FinancialAssetBloc(this._searchFinancialAssets)
       : super(InitialFinancialAssetState()) {
     //
     on<SearchFinancialAssetsEvent>(_onSearch);
@@ -27,7 +27,7 @@ class PlatformsBloc extends Bloc<FinancialAssetEvent, FinancialAssetState> {
     result.fold((left) {
       emit(FailureFinancialAssetState(error: left.message));
     }, (right) async {
-      emit(SuccessFinancialAssetState(platforms: right));
+      emit(SuccessFinancialAssetState(financialAssets: right));
     });
   }
 }

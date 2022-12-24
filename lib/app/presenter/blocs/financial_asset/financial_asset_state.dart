@@ -17,10 +17,10 @@ class LoadingFinancialAssetState extends FinancialAssetState {
 }
 
 class SuccessFinancialAssetState extends FinancialAssetState {
-  final List<FinancialAssetEntity> platforms;
+  final List<FinancialAssetEntity> financialAssets;
 
   const SuccessFinancialAssetState({
-    required this.platforms,
+    required this.financialAssets,
   });
 
   @override
