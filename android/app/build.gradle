@@ -39,7 +39,7 @@ android {
         applicationId "br.gerlanstanley.finances_app"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-build-configuration.
-        minSdkVersion flutter.minSdkVersion
+        minSdkVersion 21
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
@@ -56,4 +56,10 @@ android {
 
 flutter {
     source '../..'
+}
+
+dependencies {
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.appcompat:appcompat:1.3.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
 }
