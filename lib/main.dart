@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'app/presenter/pages/variations_chart/variations_chart_page.dart';
-import 'app/presenter/pages/variations_table/variations_table_page.dart';
+import 'app/presenter/pages/home/home_page.dart';
 import 'core/constants/constants.dart';
 import 'core/inject/inject.dart';
 
@@ -10,24 +9,9 @@ void main() async {
 
   Inject.initialize();
 
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: "Finances App",
-      theme: ThemeConstants.dark,
-      initialRoute: RoutesConstants.chart,
-      routes: {
-        RoutesConstants.table: (context) => const VariationsTablePage(),
-        RoutesConstants.chart: (context) => const VariationsChartPage(),
-      },
-    );
-  }
+  runApp(MaterialApp(
+    title: "Finances App",
+    theme: ThemeConstants.dark,
+    home: const HomePage(),
+  ));
 }

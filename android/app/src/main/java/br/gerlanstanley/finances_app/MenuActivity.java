@@ -1,57 +1,50 @@
 package br.gerlanstanley.finances_app;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
-import java.util.Objects;
-
-import io.flutter.embedding.android.FlutterActivity;
-import io.flutter.plugin.common.EventChannel;
-
-public class MenuActivity extends FlutterActivity {
-    private static final String CHANNEL = "platform_channel_events/pages";
-    private EventChannel.EventSink attachEvent;
-
+public class MenuActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_activity);
 
-        new EventChannel(Objects.requireNonNull(getFlutterEngine()).getDartExecutor(), CHANNEL).setStreamHandler(
-                new EventChannel.StreamHandler() {
-                    @Override
-                    public void onListen(Object args, final EventChannel.EventSink events) {
-                        System.out.println("onListen");
-                        attachEvent = events;
-                    }
+        getSupportActionBar().hide();
 
-                    @Override
-                    public void onCancel(Object args) {
-                        System.out.println("onCancel");
-                        attachEvent = null;
-                    }
-                }
-        );
+        Window window = getWindow();
+
+        // clear FLAG_TRANSLUCENT_STATUS flag:
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+
+        // add FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS flag to the window
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+
+        // finally change the color
+        window.setStatusBarColor(ContextCompat.getColor(this, R.color.primary));
 
         View tableButton = findViewById(R.id.table_button);
-        tableButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                attachEvent.success("/table");
-                finish();
-            }
+        tableButton.setOnClickListener(view -> {
+            Intent returnIntent = new Intent();
+            returnIntent.putExtra("page", "/table");
+            setResult(Activity.RESULT_OK, returnIntent);
+            finish();
         });
 
 
         View graphButton = findViewById(R.id.graph_button);
-        graphButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                attachEvent.success("/chart");
-                finish();
-            }
+        graphButton.setOnClickListener(view -> {
+            Intent returnIntent = new Intent();
+            returnIntent.putExtra("page", "/chart");
+            setResult(Activity.RESULT_OK, returnIntent);
+            finish();
         });
     }
 }
