@@ -27,8 +27,6 @@ class FinancialAssetDataSourceImpl implements FinancialAssetDataSource {
     } on Failure {
       rethrow;
     } catch (e, stackTrace) {
-      printDebug(e);
-      printDebug(stackTrace);
       throw ParseFailure(
         message: "Erro ao mapear o json",
         stackTrace: stackTrace,
