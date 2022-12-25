@@ -69,10 +69,12 @@ class _VariationsChartPageState extends State<VariationsChartPage> {
                       message: state.error,
                       onPressed: () => variationBloc.add(
                         GetAllVariationsEvent(
-                            symbol: textEditingController.text),
+                          symbol: textEditingController.text,
+                        ),
                       ),
                     );
                   } else if (state is SuccessVariationState) {
+                    print(financialAssetBloc.selectedFinancialAsset);
                     return SingleChildScrollView(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
