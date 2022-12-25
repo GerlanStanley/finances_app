@@ -36,13 +36,14 @@ class FinancialAssetAutoCompleteTextField extends StatelessWidget {
             style: DefaultTextStyle.of(context)
                 .style
                 .copyWith(fontStyle: FontStyle.italic),
+            cursorColor: ColorsConstants.divider,
             decoration: InputDecoration(
               labelText: "Pesquisar ativo",
               labelStyle: TextStyle(
                 fontSize: 16,
                 color: state is FailureFinancialAssetState
                     ? ColorsConstants.error
-                    : ColorsConstants.primary,
+                    : ColorsConstants.divider,
                 fontWeight: FontWeight.w600,
               ),
               errorText:
@@ -63,7 +64,7 @@ class FinancialAssetAutoCompleteTextField extends StatelessWidget {
                 borderSide: BorderSide(
                   color: state is FailureFinancialAssetState
                       ? ColorsConstants.error
-                      : ColorsConstants.primary,
+                      : ColorsConstants.divider,
                   width: 1,
                 ),
                 borderRadius: BorderRadius.circular(4),
@@ -72,7 +73,7 @@ class FinancialAssetAutoCompleteTextField extends StatelessWidget {
                 borderSide: BorderSide(
                   color: state is FailureFinancialAssetState
                       ? ColorsConstants.error
-                      : ColorsConstants.primary,
+                      : ColorsConstants.divider,
                   width: 2,
                 ),
                 borderRadius: BorderRadius.circular(4),
@@ -133,9 +134,8 @@ class FinancialAssetAutoCompleteTextField extends StatelessWidget {
             variationBloc.add(GetAllVariationsEvent(symbol: suggestion.symbol));
           },
           noItemsFoundBuilder: (context) {
-            return Container(
-              padding: const EdgeInsets.all(12),
-              child: Text(
+            return ListTile(
+              title: Text(
                 textEditingController.text.length < 3
                     ? "Digite pelo menos 3 caracteres"
                     : "Nenhum item encontrado",

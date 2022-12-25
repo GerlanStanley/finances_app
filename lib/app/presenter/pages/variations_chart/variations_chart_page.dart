@@ -25,6 +25,16 @@ class _VariationsChartPageState extends State<VariationsChartPage> {
   final FocusNode focusNode = FocusNode();
 
   @override
+  void initState() {
+    super.initState();
+
+    if (financialAssetBloc.selectedFinancialAsset != null) {
+      textEditingController.text =
+          financialAssetBloc.selectedFinancialAsset!.symbol;
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
@@ -36,7 +46,7 @@ class _VariationsChartPageState extends State<VariationsChartPage> {
         return false;
       },
       child: Scaffold(
-        appBar: AppBar(title: const Text("Variation Chart")),
+        appBar: AppBar(title: const Text("Gráfico de variações")),
         body: Column(
           children: [
             Container(

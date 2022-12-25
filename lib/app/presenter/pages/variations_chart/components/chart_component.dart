@@ -41,7 +41,7 @@ class ChartComponent extends StatelessWidget {
 
     Widget text;
 
-    if (value.toInt() % 15 == 0 || value == variations.length) {
+    if (value == 1 || value.toInt() % 15 == 0 || value == variations.length) {
       text = Text(
         DateTimeUtils.formattedDate(variations[value.toInt() - 1].date),
         style: style,
@@ -96,9 +96,8 @@ class ChartComponent extends StatelessWidget {
           tooltipBgColor: ColorsConstants.backgroundDark,
           getTooltipItems: (touchedSpots) {
             return touchedSpots.map((LineBarSpot touchedSpot) {
-              final textStyle = TextStyle(
-                color: touchedSpot.bar.gradient?.colors[0] ??
-                    touchedSpot.bar.color,
+              const textStyle = TextStyle(
+                color: ColorsConstants.text,
                 fontWeight: FontWeight.bold,
                 fontSize: 14,
               );

@@ -25,6 +25,16 @@ class _VariationsTablePageState extends State<VariationsTablePage> {
   final FocusNode focusNode = FocusNode();
 
   @override
+  void initState() {
+    super.initState();
+
+    if (financialAssetBloc.selectedFinancialAsset != null) {
+      textEditingController.text =
+          financialAssetBloc.selectedFinancialAsset!.symbol;
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
@@ -36,7 +46,7 @@ class _VariationsTablePageState extends State<VariationsTablePage> {
         return false;
       },
       child: Scaffold(
-        appBar: AppBar(title: const Text("Variation Table")),
+        appBar: AppBar(title: const Text("Tabela de variações")),
         body: Column(
           children: [
             Container(
@@ -58,7 +68,8 @@ class _VariationsTablePageState extends State<VariationsTablePage> {
                     return FailureWidget(
                       message: state.error,
                       onPressed: () => variationBloc.add(
-                        GetAllVariationsEvent(symbol: textEditingController.text),
+                        GetAllVariationsEvent(
+                            symbol: textEditingController.text),
                       ),
                     );
                   } else if (state is SuccessVariationState) {

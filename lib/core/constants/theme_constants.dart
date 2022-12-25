@@ -16,6 +16,7 @@ class ThemeConstants {
     appBarTheme: const AppBarTheme(
       color: ColorsConstants.appBarBackground,
       iconTheme: IconThemeData(color: ColorsConstants.appBarIcon),
+      elevation: 0,
       titleTextStyle: TextStyle(
         color: ColorsConstants.appBarText,
         fontWeight: FontWeight.w700,
@@ -38,6 +39,9 @@ class ThemeConstants {
         fontWeight: FontWeight.w700,
         fontSize: 14,
       ),
+    ),
+    listTileTheme: const ListTileThemeData(
+      tileColor: ColorsConstants.backgroundDark,
     ),
     textTheme: const TextTheme(
       headline1: TextStyle(
