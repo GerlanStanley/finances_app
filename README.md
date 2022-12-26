@@ -6,7 +6,7 @@
 Esse é um app desenvolvido em flutter/dart que exibe as variações de ativos financeiros na forma de tabela e gráfico
 
 ## Principais bibliotecas/tecnologias utilizadas
-- Gerenciamento de estado: <a href="https://pub.dev/packages/bloc" target="_blank">Bloc</a>, <a href="https://pub.dev/packages/flutter_bloc" target="_blank">Flutter_bloc</a>
+- Gerenciamento de estado: [Bloc](https://pub.dev/packages/bloc), [Flutter_bloc](https://pub.dev/packages/flutter_bloc)
 - Injeção de dependências: [GetIt](https://pub.dev/packages/get_it)
 - Requisições http: [Dio](https://pub.dev/packages/dio)
 - Gráficos: [FL Chart](https://pub.dev/packages/fl_chart)
