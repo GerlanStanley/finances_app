@@ -19,10 +19,7 @@ class FinancialAssetDataSourceImpl implements FinancialAssetDataSource {
     try {
       Map response = await _httpHelper.get(
         "/v1/finance/search",
-        queryParameters: {
-          "q": input.text,
-          "lang": "pt-BR"
-        },
+        queryParameters: {"q": input.text, "lang": "pt-BR"},
       );
       return FinancialAssetMapper.fromList(response["quotes"]);
     } on Failure {

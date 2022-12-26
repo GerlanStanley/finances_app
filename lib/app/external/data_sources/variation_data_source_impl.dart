@@ -18,19 +18,19 @@ class VariationDataSourceImpl implements VariationDataSource {
   }) async {
     try {
       DateTime now = DateTime.now();
-      var period1 = now.millisecondsSinceEpoch ~/ 1000;
-      var period2 =
-          now.subtract(const Duration(days: 30)).millisecondsSinceEpoch ~/ 1000;
+      var period1 =
+          now.subtract(const Duration(days: 50)).millisecondsSinceEpoch ~/ 1000;
+      var period2 = now.millisecondsSinceEpoch ~/ 1000;
 
       Map response = await _httpHelper.get(
-        "/v8/finance/charts/${input.symbol}",
+        "/v8/finance/chart/${input.symbol}",
         queryParameters: {
           "interval": "1d",
           "period1": period1,
           "period2": period2,
         },
       );
-      return VariationMapper.fromList(response["chart"]["result"]);
+      return VariationMapper.fromList(response["chart"]["result"][0]);
     } on Failure {
       rethrow;
     } catch (e, stackTrace) {

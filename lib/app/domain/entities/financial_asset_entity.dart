@@ -1,8 +1,8 @@
 class FinancialAssetEntity {
   final String symbol;
-  final String longName;
-  final String sector;
-  final String industry;
+  final String? longName;
+  final String? sector;
+  final String? industry;
 
   FinancialAssetEntity({
     required this.symbol,
