@@ -74,7 +74,6 @@ class _VariationsChartPageState extends State<VariationsChartPage> {
                       ),
                     );
                   } else if (state is SuccessVariationState) {
-                    print(financialAssetBloc.selectedFinancialAsset);
                     return SingleChildScrollView(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,

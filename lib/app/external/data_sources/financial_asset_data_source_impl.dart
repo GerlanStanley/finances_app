@@ -1,8 +1,6 @@
 import '../../../../core/failures/failures.dart';
 import '../../../../core/helpers/http/http.dart';
 
-import '../../../core/utils/utils.dart';
-
 import '../../domain/dtos/dtos.dart';
 import '../../domain/entities/entities.dart';
 import '../../infra/data_sources/data_sources.dart';
