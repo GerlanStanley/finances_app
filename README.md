@@ -6,26 +6,26 @@
 Esse é um app desenvolvido em flutter/dart que exibe as variações de ativos financeiros na forma de tabela e gráfico
 
 ## Principais bibliotecas/tecnologias utilizadas
-- Gerenciamento de estado: [Bloc](https://pub.dev/packages/bloc){:target="_blank" rel="noopener"}, [Flutter_bloc](https://pub.dev/packages/flutter_bloc){:target="_blank" rel="noopener"}
-- Injeção de dependências: [GetIt](https://pub.dev/packages/get_it){:target="_blank" rel="noopener"}
-- Requisições http: [Dio](https://pub.dev/packages/dio){:target="_blank" rel="noopener"}
-- Gráficos: [FL Chart](https://pub.dev/packages/fl_chart){:target="_blank" rel="noopener"}
-- Testes: [Mocktail](https://pub.dev/packages/mocktail){:target="_blank" rel="noopener"}, [bloc_test](https://pub.dev/packages/bloc_test){:target="_blank" rel="noopener"}
+- Gerenciamento de estado: [Bloc](https://pub.dev/packages/bloc), [Flutter_bloc](https://pub.dev/packages/flutter_bloc)
+- Injeção de dependências: [GetIt](https://pub.dev/packages/get_it)
+- Requisições http: [Dio](https://pub.dev/packages/dio)
+- Gráficos: [FL Chart](https://pub.dev/packages/fl_chart)
+- Testes: [Mocktail](https://pub.dev/packages/mocktail), [bloc_test](https://pub.dev/packages/bloc_test)
 
 ## Arquitetura
 - A arquitetura utilizada no app foi baseada na
-[Clean Dart](https://github.com/Flutterando/Clean-Dart){:target="_blank" rel="noopener"}
+[Clean Dart](https://github.com/Flutterando/Clean-Dart)
 (Proposta de Arquitetura Limpa da Flutterando)
 - O app possui uma tela em Android/Java (tela de menu) e as demais são em Flutter/Dart
 
 ## API
-A API utilizada nesse app foi: [Yahoo Finance](https://finance.yahoo.com/){:target="_blank" rel="noopener"}
+A API utilizada nesse app foi: [Yahoo Finance](https://finance.yahoo.com/)
 
 ## Testes
 Foram implementados testes de unidades e widgets
 
 ## Build/Tests
-Passo 1: [Instale o Flutter](https://docs.flutter.dev/get-started/install){:target="_blank" rel="noopener"}
+Passo 1: [Instale o Flutter](https://docs.flutter.dev/get-started/install)
 (Versão utilizada no desenvolvimento: 3.3.9)
 
 Passo 2: Baixe ou clone este repositório usando o link abaixo:
